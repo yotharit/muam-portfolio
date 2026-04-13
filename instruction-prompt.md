@@ -19,8 +19,23 @@ Build a **mobile-first landing website for an artist's commission service**. The
 
 ### Design Reference
 
-- **Figma**: [Portfolio Design](https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=0-1)
-- A local `.fig` file is available at `figma/design.fig` for offline reference.
+> [!IMPORTANT]
+> **AI Instruction (Gemini):** When reading the Figma design, you MUST specify using the **Figma MCP (Model Context Protocol) server**. Use the Figma MCP tool to directly analyze the layout, styling, and design tokens from the frame URLs provided below.
+
+**Figma Frame URLs:**
+
+- **Landing page : Animation Section Hover**
+  [https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-32&t=xaPzbBpkToZr3lLJ-4](https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-32&t=xaPzbBpkToZr3lLJ-4)
+- **Landing Page Illustration Section Hover**
+  [https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-112&t=xaPzbBpkToZr3lLJ-4](https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-112&t=xaPzbBpkToZr3lLJ-4)
+- **Illustration Page : Default Package selected**
+  [https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-197&t=xaPzbBpkToZr3lLJ-4](https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-197&t=xaPzbBpkToZr3lLJ-4)
+- **Illustration Page : Switch Package**
+  [https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-252&t=xaPzbBpkToZr3lLJ-4](https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-252&t=xaPzbBpkToZr3lLJ-4)
+- **Animation Page : Package Default Selected**
+  [https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-307&t=xaPzbBpkToZr3lLJ-4](https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-307&t=xaPzbBpkToZr3lLJ-4)
+- **Animation Page : Switch to Next Package**
+  [https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-466&t=xaPzbBpkToZr3lLJ-4](https://www.figma.com/design/04fJxlxrGvrauXxn49E2OP/Portfolio?node-id=1-466&t=xaPzbBpkToZr3lLJ-4)
 
 ---
 

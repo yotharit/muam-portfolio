@@ -1,0 +1,82 @@
+import { CommissionType } from '@/types/commission';
+
+export const illustrationCommission: CommissionType = {
+  id: 'illustration',
+  slug: 'illustration',
+  name: 'Illustration',
+  tagline: 'Bring your vision to life',
+  description: 'High-quality custom illustrations for personal and commercial use.',
+  heroImage: '/images/hero/illustration-hero.jpg',
+  ogImage: '/images/og/illustration.jpg',
+  seo: {
+    title: 'Illustration Commissions — Artist Name',
+    description: 'Commission custom illustrations. Choose from multiple packages.',
+    ogImage: '/images/og/illustration.jpg',
+  },
+  packages: [
+    {
+      id: 'illust-basic',
+      name: 'Basic',
+      description: 'Simple character illustration with flat colors.',
+      price: '$XX',
+      currency: 'USD',
+      deliverables: [
+        'Single character',
+        'Simple background',
+        'High-res PNG file',
+      ],
+      turnaroundDays: 7,
+      revisions: 2,
+      sampleImage: '/images/packages/illust-basic-sample.jpg',
+      ctaText: 'Request Basic',
+      ctaLink: 'mailto:commissions@artist.com?subject=Basic%20Illustration',
+    },
+    {
+      id: 'illust-standard',
+      name: 'Standard',
+      description: 'Detailed character illustration with rendered shading.',
+      price: '$XX',
+      currency: 'USD',
+      deliverables: [
+        'Single character',
+        'Detailed background',
+        'High-res PNG + PSD files',
+      ],
+      turnaroundDays: 14,
+      revisions: 3,
+      featured: true,
+      sampleImage: '/images/packages/illust-standard-sample.jpg',
+      ctaText: 'Request Standard',
+      ctaLink: 'mailto:commissions@artist.com?subject=Standard%20Illustration',
+    },
+    {
+      id: 'illust-premium',
+      name: 'Premium',
+      description: 'Full illustration with complex composition and effects.',
+      price: '$XX',
+      currency: 'USD',
+      deliverables: [
+        'Multiple characters',
+        'Full scenic background',
+        'High-res PNG + PSD + process video',
+        'Commercial license included',
+      ],
+      turnaroundDays: 21,
+      revisions: 5,
+      extras: ['Commercial license', 'Process video'],
+      sampleImage: '/images/packages/illust-premium-sample.jpg',
+      ctaText: 'Request Premium',
+      ctaLink: 'mailto:commissions@artist.com?subject=Premium%20Illustration',
+    },
+  ],
+  portfolioSamples: [
+    {
+      id: 'illust-sample-01',
+      src: '/images/portfolio/illust-01.jpg',
+      alt: 'Illustration sample 1',
+      width: 1200,
+      height: 800,
+    },
+    // ... more samples
+  ],
+};

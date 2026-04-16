@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+  /* Colors — derived from Figma design */
+  --color-primary: #ff94af;       /* Pink accent */
+  --color-secondary: #ffead9;     /* Light cream/peach */
+  --color-accent: #670f0f;        /* Deep red boundary/border */
+  
+  --color-bg-start: #ffead9;
+  --color-bg-end: #c7bdb4;
+  --color-surface: rgba(255, 255, 255, 0.7); /* Adjusted for glassmorphism */
+  
+  --color-text-primary: #1a1a1a;  /* Dark text for readability on light bg */
+  --color-text-secondary: #fae6d6; /* Light text (from Figma, possibly for dark backgrounds) */
+  --color-text-muted: #555555;
+
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+
+  /* Border radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+}

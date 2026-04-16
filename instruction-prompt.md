@@ -2,6 +2,9 @@
 
 > **Use this prompt when initializing the project with an AI coding assistant or as a handoff document for development.**
 
+> [!IMPORTANT]
+> **AI Execution Strategy:** You must execute this project strictly **step-by-step**. After completing each phase or significant step (especially during the Implementation Phases), you **MUST STOP and ask the user for review and approval** before proceeding to the next step. Do not attempt to build the entire project in one go.
+
 ---
 
 ## 1. Project Overview
@@ -844,6 +847,7 @@ pnpm lint
 ## 12. Key Reminders
 
 > [!CAUTION]
+> - **Execution Pace:** Work iteratively. ALWAYS present your progress for review after completing a step or phase. Do not proceed to the next phase without explicit user approval.
 > - **Do NOT hardcode ANY content in components.** All text, images, prices, links, and labels must come from config/data files.
 > - **Do NOT use placeholder gray boxes for images.** Generate or source real visuals.
 > - **Do NOT use Tailwind CSS** unless explicitly requested.

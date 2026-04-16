@@ -87,7 +87,7 @@ flowchart TD
 Use the following command to scaffold the project:
 
 ```bash
-pnpm dlx create-next-app@latest ./ --typescript --eslint --app --src-dir --import-alias "@/*" --use-pnpm
+npx create-next-app@latest ./ --typescript --eslint --app --src-dir --import-alias "@/*" --use-npm
 ```
 
 > [!IMPORTANT]
@@ -148,7 +148,7 @@ portfolio/
 ├── next.config.ts
 ├── tsconfig.json
 ├── package.json
-└── pnpm-lock.yaml
+└── package-lock.json
 ```
 
 ---
@@ -790,7 +790,7 @@ export const metadata: Metadata = {
 ## 10. Implementation Phases
 
 ### Phase 1 — Foundation & Config Layer
-- [ ] Initialize Next.js project with PNPM
+- [ ] Initialize Next.js project with NPM
 - [ ] Set up project structure (directories, aliases)
 - [ ] **Create all TypeScript interfaces** (`src/types/config.ts`, `src/types/commission.ts`)
 - [ ] **Create `site.config.ts`** with name, logo, nav, footer, socials
@@ -827,19 +827,19 @@ export const metadata: Metadata = {
 
 ```bash
 # Install dependencies
-pnpm install
+npm install
 
 # Start development server
-pnpm dev
+npm run dev
 
 # Build for production
-pnpm build
+npm run build
 
 # Start production server
-pnpm start
+npm run start
 
 # Lint
-pnpm lint
+npm run lint
 ```
 
 ---

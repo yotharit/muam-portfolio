@@ -1,8 +1,12 @@
+import CommissionPageTemplate from '@/components/commission/CommissionPageTemplate';
+import { illustrationCommission } from '@/data/illustration';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: illustrationCommission.seo?.title || illustrationCommission.name,
+  description: illustrationCommission.seo?.description || illustrationCommission.description,
+};
+
 export default function IllustrationPage() {
-  return (
-    <div style={{ padding: 'var(--space-3xl) var(--space-xl)', textAlign: 'center', minHeight: '60vh' }}>
-      <h1 style={{ fontSize: '2.5rem', color: 'var(--color-accent)' }}>Illustration</h1>
-      <p style={{ marginTop: 'var(--space-md)' }}>Illustration Components Pending Phase 3</p>
-    </div>
-  );
+  return <CommissionPageTemplate commission={illustrationCommission} />;
 }

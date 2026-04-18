@@ -1,0 +1,18 @@
+/* Full-viewport wrapper */
+.landing {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ffead9, #c7bdb4);
+}
+
+/* Inner canvas – the 393×844 artboard, centered & scaled */
+.canvas {
+  position: absolute;
+  width: 393px;
+  height: 844px;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(var(--scale, 1));
+}

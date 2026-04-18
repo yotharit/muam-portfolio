@@ -1,43 +1,11 @@
-.homeContainer {
-  display: flex;
-  flex-direction: column;
-}
-
-.commissionsSection {
-  padding: var(--space-3xl) var(--space-xl);
-  background: transparent;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2xl);
-}
-
-.sectionTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  text-align: center;
-  color: var(--color-accent);
-  margin: 0;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-xl);
-}
-
-@media (min-width: 768px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid {
-    gap: var(--space-2xl);
-  }
-}
+/* 
+ * page.module.css — Home page
+ * 
+ * All styles have been moved to component-level CSS modules:
+ * - LandingCanvas.module.css   (viewport & scaling)
+ * - LandingTopBar.module.css   (title bar, logo, window controls)
+ * - AppleTV.module.css         (TV body, screen, buttons, dots, legs)
+ * - AnimationBanner.module.css (banner, text, bubbles)
+ * - DeskScene.module.css       (cup, books, carpet, illustration, lines, mat)
+ * - BottomScene.module.css     (snack, bread, stars)
+ */

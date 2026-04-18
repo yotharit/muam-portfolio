@@ -1,0 +1,250 @@
+/* Shared image fill */
+.imgFill {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Cup ── */
+.cupBody {
+  position: absolute;
+  height: 94.449px;
+  left: -13px;
+  top: 464px;
+  width: 90.566px;
+}
+
+.cupBodyInner {
+  position: absolute;
+  inset: -1.56% -1.63% -1.56% -1.94%;
+}
+
+.cupRim {
+  position: absolute;
+  height: 21px;
+  left: -12px;
+  top: 454px;
+  width: 90px;
+}
+
+.cupRimInner {
+  position: absolute;
+  inset: -6.1% -1.34% -7.81% -0.16%;
+}
+
+.cupRimHighlight {
+  position: absolute;
+  height: 10.665px;
+  left: -5.5px;
+  top: 460.69px;
+  width: 75.5px;
+}
+
+.cupRimHighlightInner {
+  position: absolute;
+  inset: -11.46% 8.31% -13.66% 7.5%;
+}
+
+.cupHandle {
+  position: absolute;
+  height: 45px;
+  left: 56.5px;
+  top: 484px;
+  width: 42px;
+}
+
+.cupHandleInner {
+  position: absolute;
+  inset: -2.98% -2.02% -2.72% -2.24%;
+}
+
+/* ── Books ── */
+.bookLayer1 {
+  position: absolute;
+  display: flex;
+  height: 158.129px;
+  align-items: center;
+  justify-content: center;
+  left: 144.78px;
+  top: 449px;
+  width: 335.443px;
+}
+
+.bookLayer1Rotate {
+  flex: none;
+  transform: rotate(1.64deg);
+}
+
+.bookLayer1Shape {
+  height: 148.703px;
+  position: relative;
+  width: 331.321px;
+}
+
+.bookLayer1Inner {
+  position: absolute;
+  inset: -0.68% -0.49% -0.37% -0.48%;
+}
+
+.bookLayer2 {
+  position: absolute;
+  display: flex;
+  height: 152.473px;
+  align-items: center;
+  justify-content: center;
+  left: 116px;
+  top: 484.44px;
+  width: 332.996px;
+}
+
+.bookLayer2Rotate {
+  flex: none;
+  transform: rotate(-0.65deg);
+}
+
+.bookLayer2Shape {
+  height: 148.703px;
+  position: relative;
+  width: 331.321px;
+}
+
+.bookLayer2Inner {
+  position: absolute;
+  inset: -0.51% -0.42% -0.49% -0.5%;
+}
+
+.bookLayer3 {
+  position: absolute;
+  display: flex;
+  height: 152.473px;
+  align-items: center;
+  justify-content: center;
+  left: 137.71px;
+  top: 511.11px;
+  width: 332.996px;
+}
+
+.bookLayer3Rotate {
+  flex: none;
+  transform: rotate(-0.65deg);
+}
+
+.bookLayer3Shape {
+  height: 148.703px;
+  position: relative;
+  width: 331.321px;
+}
+
+.bookLayer3Inner {
+  position: absolute;
+  inset: -0.39% -0.4% -0.37% -0.52%;
+}
+
+/* ── Carpet ── */
+.carpet {
+  position: absolute;
+  display: flex;
+  height: 207.936px;
+  align-items: center;
+  justify-content: center;
+  left: -72.16px;
+  top: 542.03px;
+  width: 393.413px;
+}
+
+.carpetRotate {
+  flex: none;
+  transform: rotate(6.17deg);
+}
+
+.carpetShape {
+  height: 168.307px;
+  position: relative;
+  width: 377.5px;
+}
+
+.carpetInner {
+  position: absolute;
+  inset: 0 0 -0.33% -0.1%;
+}
+
+/* ── Illustration section ── */
+.illuWindow {
+  position: absolute;
+  height: 69.5px;
+  left: 82px;
+  top: 591.5px;
+  width: 131.5px;
+}
+
+.illuWindowInner {
+  position: absolute;
+  inset: 0.39% 1.22% 0.42% 1.3%;
+}
+
+.illuText {
+  position: absolute;
+  font-family: 'jsMath-cmti10:cmti10', sans-serif;
+  font-style: italic;
+  line-height: normal;
+  left: 12px;
+  color: #fae6d5;
+  font-size: 40px;
+  top: 598px;
+  white-space: nowrap;
+  margin: 0;
+  z-index: 10;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.illuText:hover {
+  opacity: 0.8;
+}
+
+/* ── Striped lines ── */
+.lineWrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rotateInner {
+  flex: none;
+}
+
+.lineShape {
+  height: 0;
+  position: relative;
+}
+
+/* ── Floor mat ── */
+.floorMat {
+  position: absolute;
+  display: flex;
+  height: 205.207px;
+  align-items: center;
+  justify-content: center;
+  left: -19.74px;
+  top: 602.37px;
+  width: 334.657px;
+}
+
+.floorMatRotate {
+  flex: none;
+  transform: rotate(6.17deg);
+}
+
+.floorMatShape {
+  height: 172px;
+  position: relative;
+  width: 318.001px;
+}
+
+.floorMatInner {
+  position: absolute;
+  inset: -0.33% -0.14% -0.53% -0.55%;
+}

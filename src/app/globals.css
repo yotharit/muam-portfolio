@@ -1,5 +1,13 @@
 @import '../styles/variables.css';
 
+@font-face {
+  font-family: 'jsMath-cmti10:cmti10';
+  src: url('/fonts/jsMath-cmti10.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 *, *::before, *::after {
   box-sizing: border-box;
 }

@@ -5,6 +5,8 @@ import { CommissionType } from '@/types/commission';
 import PackageSelector from './PackageSelector';
 import PackageDetail from './PackageDetail';
 import PortfolioGallery from './PortfolioGallery';
+import Header from '@/components/layout/Header';
+import Footer from '@/components/layout/Footer';
 import styles from './CommissionPageTemplate.module.css';
 
 interface CommissionPageTemplateProps {
@@ -19,8 +21,10 @@ export default function CommissionPageTemplate({ commission }: CommissionPageTem
   const activePackage = commission.packages.find((p) => p.id === activePackageId);
 
   return (
-    <div className={styles.pageContainer}>
-      <header className={styles.hero} style={{ backgroundImage: `url(${commission.heroImage})` }}>
+    <>
+      <Header />
+      <div className={styles.pageContainer}>
+        <header className={styles.hero} style={{ backgroundImage: `url(${commission.heroImage})` }}>
         <div className={styles.heroOverlay} />
         <div className={styles.heroContent}>
           <h1 className={styles.title}>{commission.name}</h1>
@@ -55,5 +59,7 @@ export default function CommissionPageTemplate({ commission }: CommissionPageTem
         )}
       </main>
     </div>
+    <Footer />
+    </>
   );
 }

@@ -9,12 +9,11 @@
 /* ── Top bar ── */
 .topBar {
   position: absolute;
-  background-color: #ff94af;
-  border: 1px solid #670f0f;
-  height: 43px;
-  left: -13px;
-  top: -2px;
-  width: 420px;
+  display: block;
+  height: 53px;
+  left: -15px;
+  top: -10px;
+  width: 424px;
 }
 
 /* ── Logo text ── */
@@ -24,7 +23,8 @@
   font-style: italic;
   line-height: normal;
   left: 9px;
-  top: 8px;
+  top: 16.5px;
+  transform: translateY(-50%);
   width: 113px;
   color: #fae6d6;
   font-size: 29.721px;
@@ -37,7 +37,8 @@
   position: absolute;
   height: 27px;
   left: 289px;
-  top: 7px;
+  top: 16.5px;
+  transform: translateY(-50%);
   width: 95px;
   z-index: 2;
 }

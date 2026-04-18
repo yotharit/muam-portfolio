@@ -68,6 +68,7 @@
   left: 267px;
   top: 739px;
   width: 220px;
+  z-index: -10;
 }
 
 .breadOuterInner {
@@ -81,6 +82,7 @@
   left: 321px;
   top: 759px;
   width: 156px;
+  z-index: 2;
 }
 
 .breadTop1Inner {
@@ -94,6 +96,7 @@
   left: 321px;
   top: 730px;
   width: 156px;
+  z-index: 2;
 }
 
 .breadTop2Inner {
@@ -107,6 +110,7 @@
   left: 299px;
   top: 734px;
   width: 156px;
+  z-index: 5;
 }
 
 .breadBottom1Inner {
@@ -120,6 +124,7 @@
   left: 299px;
   top: 699.5px;
   width: 156px;
+  z-index: 10;
 }
 
 .breadBottom2Inner {

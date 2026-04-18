@@ -13,6 +13,7 @@
   left: 122px;
   top: 48px;
   width: 56px;
+  z-index: 1;
 }
 
 .tvStemInner {
@@ -30,6 +31,7 @@
   left: 173.69px;
   top: 52.07px;
   width: 79.266px;
+  z-index: 1;
 }
 
 .tvWingRotate {
@@ -207,6 +209,7 @@
   left: 161px;
   top: 313px;
   width: 23px;
+  z-index: -10;
 }
 
 .legCenterInner {
@@ -223,6 +226,7 @@
   left: 72.42px;
   top: 341.9px;
   width: 75.087px;
+  z-index: -10;
 }
 
 .legLeftRotate {
@@ -250,6 +254,7 @@
   left: 196.97px;
   top: 337.24px;
   width: 75.087px;
+  z-index: -10;
 }
 
 .legRightRotate {

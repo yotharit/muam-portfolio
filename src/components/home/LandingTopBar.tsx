@@ -8,7 +8,7 @@ const IMG = '/images/landing';
 export default function LandingTopBar() {
   return (
     <>
-      <div className={styles.topBar} />
+      <img alt="" className={styles.topBar} src={`${IMG}/topbar-box.svg`} />
 
       <p className={styles.logoText}>Mu•am</p>
 

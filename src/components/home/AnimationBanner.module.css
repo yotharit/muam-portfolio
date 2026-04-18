@@ -15,8 +15,7 @@
   width: 285px;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.95);
-  transition: opacity 0.3s ease-out, visibility 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  animation: cycleWiggleAnim 2s ease-out infinite;
 }
 
 .animBannerInner {
@@ -57,6 +56,9 @@
   top: 414.48px;
   width: 61.597px;
   z-index: 10;
+  opacity: 0;
+  animation: floatUp 3s ease-in-out infinite;
+  animation-delay: 0.8s;
 }
 
 .bubbleLargeRotate {
@@ -85,6 +87,9 @@
   left: 0;
   top: 381px;
   width: 43.217px;
+  opacity: 0;
+  animation: floatUp 3s ease-in-out infinite;
+  animation-delay: 0.4s;
 }
 
 .bubbleMediumRotate {
@@ -113,6 +118,9 @@
   left: -20px;
   top: 338.59px;
   width: 35.328px;
+  opacity: 0;
+  animation: floatUp 3s ease-in-out infinite;
+  animation-delay: 0s;
 }
 
 .bubbleSmallRotate {
@@ -140,8 +148,29 @@
   pointer-events: none; /* Prevents bubbles from interfering with link hovers */
 }
 
-.animGroup:hover .animBanner {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
+@keyframes cycleWiggleAnim {
+  0% { opacity: 0; visibility: hidden; transform: rotate(0deg) scale(0.95); }
+  10% { opacity: 1; visibility: visible; transform: rotate(-2deg) scale(1); }
+  25% { opacity: 1; visibility: visible; transform: rotate(2deg) scale(1.03); }
+  40% { opacity: 1; visibility: visible; transform: rotate(-2deg) scale(1); }
+  50%, 100% { opacity: 0; visibility: hidden; transform: rotate(0deg) scale(0.95); }
+}
+
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-15px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
 }

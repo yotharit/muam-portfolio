@@ -1,4 +1,8 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import styles from './AppleTV.module.css';
+import { homeConfig } from '@/config/home.config';
 
 const IMG = '/images/landing';
 
@@ -7,6 +11,36 @@ const IMG = '/images/landing';
  * buttons, decorative dots, and legs.
  */
 export default function AppleTV() {
+  const configImages = homeConfig.tvScreenImages || [`${IMG}/vector8.png`];
+  // Duplicate the first image to make sliding seamless
+  const images = configImages.length > 1 ? [...configImages, configImages[0]] : configImages;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+
+  useEffect(() => {
+    if (configImages.length <= 1) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => prev + 1);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [configImages.length]);
+
+  const handleTransitionEnd = () => {
+    // If we've hit the duplicated clone slide at the end
+    if (currentIndex >= images.length - 1 && configImages.length > 1) {
+      // Disable CSS transitions instantly
+      setIsTransitioning(false);
+      // Snap index back to 0 (the real first image)
+      setCurrentIndex(0);
+      
+      // Quickly restore transitioning class so the next natural slide works
+      setTimeout(() => {
+        setIsTransitioning(true);
+      }, 50);
+    }
+  };
+
   return (
     <>
       {/* ── Stem ── */}
@@ -59,7 +93,20 @@ export default function AppleTV() {
       </div>
       <div className={styles.tvScreenInner}>
         <div className={styles.tvScreenInnerContent}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/vector8.png`} width={253.265} height={135.383} />
+          <div
+            className={styles.carouselTrack}
+            onTransitionEnd={handleTransitionEnd}
+            style={{
+              transform: `translateX(-${currentIndex * 100}%)`,
+              transition: isTransitioning ? 'transform 0.6s cubic-bezier(0.25, 1, 0.5, 1)' : 'none',
+            }}
+          >
+            {images.map((src, idx) => (
+              <div key={idx} className={styles.carouselSlide}>
+                <img alt={`Slide ${idx + 1}`} className={styles.imgFill} src={src} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

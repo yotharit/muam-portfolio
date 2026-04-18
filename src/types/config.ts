@@ -33,6 +33,7 @@ export interface ContactConfig {
 export interface HomeConfig {
   hero: HeroConfig;
   commissionCards: CommissionCardConfig[];
+  tvScreenImages?: string[];
 }
 
 export interface HeroConfig {

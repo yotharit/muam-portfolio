@@ -180,12 +180,6 @@
   /* wrapper */
 }
 
-.illuGroup:hover .illuBubble {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1);
-}
-
 .illuBubble {
   position: absolute;
   display: flex;
@@ -196,11 +190,11 @@
   top: 570px;
   width: 216px;
   z-index: 50;
+  pointer-events: none;
   opacity: 0;
   visibility: hidden;
-  transform: scale(0.8);
-  transition: opacity 0.3s ease-out, visibility 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  pointer-events: none;
+  animation: cycleWiggleIllu 2s ease-out infinite;
+  animation-delay: 1s;
 }
 
 .illuBubbleRotate {
@@ -299,4 +293,12 @@
 .floorMatInner {
   position: absolute;
   inset: -0.33% -0.14% -0.53% -0.55%;
+}
+
+@keyframes cycleWiggleIllu {
+  0% { opacity: 0; visibility: hidden; transform: rotate(0deg) scale(0.8); }
+  10% { opacity: 1; visibility: visible; transform: rotate(-2deg) scale(1); }
+  25% { opacity: 1; visibility: visible; transform: rotate(2deg) scale(1.03); }
+  40% { opacity: 1; visibility: visible; transform: rotate(-2deg) scale(1); }
+  50%, 100% { opacity: 0; visibility: hidden; transform: rotate(0deg) scale(0.8); }
 }

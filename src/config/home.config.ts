@@ -24,4 +24,9 @@ export const homeConfig: HomeConfig = {
       href: '/animation',
     },
   ],
+  tvScreenImages: [
+    '/images/landing/vector8.png',
+    '/images/landing/vector8.png',
+    '/images/landing/vector8.png',
+  ],
 };

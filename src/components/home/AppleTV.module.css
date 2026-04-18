@@ -132,6 +132,24 @@
 .tvScreenInnerContent {
   position: absolute;
   inset: -1.27% -0.65% -1.3% -0.65%;
+  overflow: hidden;
+}
+
+/* ── Screen Carousel ── */
+.carouselTrack {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+
+.carouselSlide {
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
+}
+
+.carouselSlide img {
+  object-fit: cover;
 }
 
 /* ── Button large ── */

@@ -176,6 +176,48 @@
 }
 
 /* ── Illustration section ── */
+.illuGroup {
+  /* wrapper */
+}
+
+.illuGroup:hover .illuBubble {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.illuBubble {
+  position: absolute;
+  display: flex;
+  height: 93px;
+  align-items: center;
+  justify-content: center;
+  left: -20px;
+  top: 570px;
+  width: 216px;
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease-out, visibility 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.illuBubbleRotate {
+  flex: none;
+}
+
+.illuBubbleShape {
+  height: 93px;
+  position: relative;
+  width: 216px;
+}
+
+.illuBubbleInner {
+  position: absolute;
+  inset: 0;
+}
+
 .illuWindow {
   position: absolute;
   height: 69.5px;
@@ -197,11 +239,12 @@
   line-height: normal;
   left: 12px;
   color: #fae6d5;
+  -webkit-text-stroke: 1px #670F0F;
   font-size: 40px;
   top: 598px;
   white-space: nowrap;
   margin: 0;
-  z-index: 30;
+  z-index: 100;
   text-decoration: none;
   cursor: pointer;
   transition: opacity 0.2s ease;

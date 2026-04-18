@@ -13,6 +13,10 @@
   left: 114px;
   top: 334px;
   width: 285px;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.95);
+  transition: opacity 0.3s ease-out, visibility 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .animBannerInner {
@@ -27,6 +31,7 @@
   line-height: normal;
   left: 169px;
   color: #fae6d5;
+  -webkit-text-stroke: 1px #670F0F;
   font-size: 40px;
   top: 356px;
   white-space: nowrap;
@@ -124,4 +129,19 @@
 .bubbleSmallInner {
   position: absolute;
   inset: -3.17% -4.87% -5.54% -4.5%;
+}
+
+/* ── Hover interactions ── */
+.animGroup {
+  /* wrapper */
+}
+
+.bubbleLarge, .bubbleMedium, .bubbleSmall {
+  pointer-events: none; /* Prevents bubbles from interfering with link hovers */
+}
+
+.animGroup:hover .animBanner {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
 }

@@ -72,15 +72,28 @@ export default function DeskScene() {
         </div>
       </div>
 
-      {/* ── Illustration window & text ── */}
-      <div className={styles.illuWindow}>
-        <div className={styles.illuWindowInner}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/vector56.svg`} />
+      {/* ── Illustration Section ── */}
+      <div className={styles.illuGroup}>
+        <div className={styles.illuBubble}>
+          <div className={styles.illuBubbleRotate}>
+            <div className={styles.illuBubbleShape}>
+              <div className={styles.illuBubbleInner}>
+                <img alt="" className={styles.imgFill} src={`${IMG}/vector58.svg`} />
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* ── Illustration window & text ── */}
+        <div className={styles.illuWindow}>
+          <div className={styles.illuWindowInner}>
+            <img alt="" className={styles.imgFill} src={`${IMG}/vector56.svg`} />
+          </div>
+        </div>
+        <Link href="/illustration" className={styles.illuText}>
+          Illustion
+        </Link>
       </div>
-      <Link href="/illustration" className={styles.illuText}>
-        Illustion
-      </Link>
 
       {/* ── Striped lines ── */}
       <StripedLines />

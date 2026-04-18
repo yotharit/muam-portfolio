@@ -1,0 +1,10 @@
+.topBar {
+  position: absolute;
+  display: block;
+  height: 53px;
+  left: 50%;
+  top: -10px;
+  transform: translateX(-50%);
+  width: calc(100vw / var(--scale, 1));
+  object-fit: cover;
+}

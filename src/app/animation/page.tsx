@@ -1,12 +1,10 @@
-import CommissionPageTemplate from '@/components/commission/CommissionPageTemplate';
-import { animationCommission } from '@/data/animation';
-import { Metadata } from 'next';
+import AnimationPage from '@/components/animation/AnimationPage';
 
-export const metadata: Metadata = {
-  title: animationCommission.seo?.title || animationCommission.name,
-  description: animationCommission.seo?.description || animationCommission.description,
+export const metadata = {
+  title: 'Animation — Portfolio',
+  description: 'Animation packages — choose your style.',
 };
 
-export default function AnimationPage() {
-  return <CommissionPageTemplate commission={animationCommission} />;
+export default function Page() {
+  return <AnimationPage />;
 }

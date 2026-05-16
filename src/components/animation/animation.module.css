@@ -1,0 +1,547 @@
+/* ── Page ── */
+.page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgb(255, 234, 217) 0%, rgb(199, 189, 180) 100%);
+}
+
+.canvas {
+  position: absolute;
+  width: 393px;
+  height: 844px;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+  transform: translate(-50%, -50%) scale(var(--scale, 1));
+}
+
+.imgFill {
+  display: block;
+  max-width: none;
+  width: 100%;
+  height: 100%;
+}
+
+/* ── Star ── */
+.star {
+  position: absolute;
+  left: 182px;
+  top: 83px;
+  width: 44.012px;
+  height: 44.012px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.starInner {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  transform: rotate(17.77deg);
+}
+.starImg {
+  position: absolute;
+  inset: 12.78% 14.31% 18.77% 14.31%;
+}
+
+/* ── Background decorations ── */
+.shelfBottom {
+  position: absolute;
+  background: #f8c3d0;
+  height: 133px;
+  left: -69px;
+  top: 751px;
+  width: 515px;
+}
+
+.verticalStripe {
+  position: absolute;
+  background: #f8c3d0;
+  border: 1px solid #670f0f;
+  height: 259px;
+  left: 215px;
+  top: -41px;
+  width: 20px;
+}
+
+.horizontalStripe {
+  position: absolute;
+  background: #f8c3d0;
+  border: 1px solid #670f0f;
+  height: 20px;
+  left: -2px;
+  top: 190px;
+  width: 382px;
+}
+
+/* ── Vector39 ── */
+.vector39 {
+  position: absolute;
+  height: 396px;
+  left: -35px;
+  top: -82px;
+  width: 109px;
+}
+.vector39Img {
+  position: absolute;
+  inset: -0.42% -0.83% -0.38% -1.48%;
+}
+
+/* ── Red rotated bar ── */
+.redBarWrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 28.057px;
+  left: -37px;
+  top: 189.81px;
+  width: 53.939px;
+}
+.redBarInner {
+  background: #c20003;
+  border: 1px solid #670f0f;
+  height: 17.865px;
+  width: 51.362px;
+  transform: rotate(11.88deg);
+}
+
+/* ── Vector51 ── */
+.vector51 {
+  position: absolute;
+  height: 128px;
+  left: -70px;
+  top: 429.5px;
+  width: 500.5px;
+}
+.vector51Img {
+  position: absolute;
+  inset: -1.36% 1.56% -1.37% -0.33%;
+}
+
+/* ── Pink slanted bar ── */
+.pinkSlantedWrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 123.594px;
+  left: 339.74px;
+  top: 434.82px;
+  width: 86.187px;
+}
+.pinkSlantedInner {
+  background: #ff87a5;
+  border: 1px solid #670f0f;
+  height: 22.343px;
+  width: 130.628px;
+  transform: rotate(-59.14deg);
+}
+
+/* ── Main pink shelf ── */
+.shelfMain {
+  position: absolute;
+  background: #ff87a5;
+  border: 1px solid #670f0f;
+  height: 43px;
+  left: -104px;
+  top: 515px;
+  width: 463px;
+}
+
+/* ── Red indicator pill ── */
+.pill {
+  position: absolute;
+  background: #c20003;
+  border: 1px solid #670f0f;
+  height: 17px;
+  left: 43px;
+  border-radius: 12px;
+  top: 527px;
+  width: 224px;
+  z-index: 10;
+}
+
+/* ── Disk layer (full-canvas wrapper) ── */
+.diskLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ── Disk A ── */
+.diskA {
+  position: absolute;
+  left: 43px;
+  top: 531px;
+  width: 203.001px;
+  height: 86px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.diskAImg {
+  position: absolute;
+  inset: -11.64% -5.09% -13.72% -5.22%;
+}
+
+/* ── Disk B ── */
+.diskBMain {
+  position: absolute;
+  left: 180px;
+  top: 617px;
+  width: 203px;
+  height: 86px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.diskBMainImg {
+  position: absolute;
+  inset: -1.87% -0.46% -1.63% -0.59%;
+}
+
+.groove {
+  position: absolute;
+  width: 65.304px;
+  height: 116.618px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.grooveInner {
+  transform: rotate(-26.7deg);
+}
+.grooveBar {
+  background: #fce8d7;
+  border: 1px solid #670f0f;
+  height: 125.518px;
+  width: 9.974px;
+  mask-image: url('/images/animation/rectangle110.svg');
+  mask-size: 205.137px 89.009px;
+  mask-repeat: no-repeat;
+}
+
+.diskBSubtract1 {
+  position: absolute;
+  height: 29.232px;
+  left: 247px;
+  top: 645.38px;
+  width: 69px;
+  mask-image: url('/images/animation/rectangle110.svg');
+  mask-position: -68.195px -29.996px;
+  mask-size: 205.137px 89.009px;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+}
+.diskBSubtract1Img {
+  position: absolute;
+  inset: -4.83% -2.31% -4.09% 0;
+}
+
+.diskBSubtract2 {
+  position: absolute;
+  height: 86px;
+  left: 180px;
+  top: 617px;
+  width: 203px;
+  mask-image: url('/images/animation/rectangle110.svg');
+  mask-position: -1.195px -1.612px;
+  mask-size: 205.137px 89.009px;
+  mask-repeat: no-repeat;
+  pointer-events: none;
+}
+.diskBSubtract2Img {
+  position: absolute;
+  inset: -1.87% -0.46% -1.63% -0.59%;
+}
+
+/* ── Laptop frame ── */
+.laptopOuter {
+  position: absolute;
+  background: #ff87a5;
+  border: 1px solid #670f0f;
+  height: 280px;
+  left: 39px;
+  border-radius: 12px;
+  top: 146px;
+  width: 393px;
+}
+.laptopInner {
+  position: absolute;
+  background: #fce8d7;
+  border: 1px solid #670f0f;
+  height: 229px;
+  left: 74px;
+  top: 172px;
+  width: 322px;
+}
+.screenWrap {
+  position: absolute;
+  border: 1px solid #670f0f;
+  height: 218px;
+  left: 79px;
+  top: 178px;
+  width: 322px;
+  overflow: hidden;
+}
+.screenImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* ── Spools ── */
+.spool1 {
+  position: absolute;
+  height: 57.5px;
+  left: 267px;
+  top: 521px;
+  width: 62.5px;
+}
+.spool1Img {
+  position: absolute;
+  inset: -3.05% -2.56% -0.72% 4.89%;
+}
+
+.spool2 {
+  position: absolute;
+  height: 63.828px;
+  left: 302px;
+  top: 531px;
+  width: 62.5px;
+}
+.spool2Img {
+  position: absolute;
+  inset: -2.54% -2.68% -2.46% 2.1%;
+}
+
+/* ── Keyboard strips ── */
+.keyboardTop {
+  position: absolute;
+  background: #ff87a5;
+  border: 1px solid #670f0f;
+  height: 31px;
+  left: 102px;
+  border-radius: 12px;
+  top: 411px;
+  width: 281px;
+}
+.keyboardBottom {
+  position: absolute;
+  background: #ff87a5;
+  border: 1px solid #670f0f;
+  height: 9px;
+  left: 102px;
+  border-radius: 12px;
+  top: 433px;
+  width: 281px;
+}
+
+/* ── Arm elements ── */
+.arm1Wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44.987px;
+  left: 3.75px;
+  top: 304.42px;
+  width: 90px;
+}
+.arm1Flip { transform: scaleX(-1); }
+.arm1 { height: 44.987px; width: 90px; position: relative; }
+.arm1Img { position: absolute; inset: -3.03% 0.59% -2.84% 6.29%; }
+
+.arm2Wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 78.347px;
+  left: -27.81px;
+  top: 275.4px;
+  width: 100.557px;
+}
+.arm2Flip { transform: scaleY(-1) rotate(155.42deg); }
+.arm2 { height: 44.987px; width: 90px; position: relative; }
+.arm2Img { position: absolute; inset: -3.02% 0 -3.55% 4.67%; }
+
+.arm3Wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 70.677px;
+  left: -20.99px;
+  top: 302.4px;
+  width: 90.734px;
+}
+.arm3Flip { transform: scaleY(-1) rotate(155.42deg); }
+.arm3 { height: 40.57px; width: 81.219px; position: relative; }
+.arm3Img { position: absolute; inset: -2.99% 0 9.17% 6.26%; }
+
+.arm4Wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 101.751px;
+  left: -50.9px;
+  top: 252px;
+  width: 109.824px;
+}
+.arm4Flip { transform: scaleY(-1) rotate(155.42deg); }
+.arm4 { height: 71.637px; width: 88.001px; position: relative; }
+.arm4Img { position: absolute; inset: -1.75% 0.61% -1.75% 5.59%; }
+
+.arm5Wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 79.392px;
+  left: -70px;
+  top: 275.4px;
+  width: 70.748px;
+}
+.arm5Flip { transform: rotate(54.8deg); }
+.arm5 { height: 35.905px; width: 71.831px; position: relative; }
+.arm5Img { position: absolute; inset: -4.11% 0.9% -4.63% 6.72%; }
+
+/* ── Cassette ── */
+.cassetteWrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75px;
+  left: -50.25px;
+  top: 360.4px;
+  width: 88px;
+}
+.cassetteFlip { transform: scaleX(-1); }
+.cassette { height: 75px; width: 88px; position: relative; }
+.cassetteImg { position: absolute; inset: -2.26% -1.96% -2.22% -0.81%; }
+
+/* ── Brown bar ── */
+.brownBarWrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 26px;
+  left: -50.25px;
+  top: 340.4px;
+  width: 96px;
+}
+.brownBarFlip { transform: scaleX(-1); }
+.brownBar {
+  background: #b5733a;
+  border: 1px solid #670f0f;
+  height: 26px;
+  width: 96px;
+}
+
+/* ── Thin pink strip ── */
+.thinPinkStrip {
+  position: absolute;
+  background: #f8c3d0;
+  border: 1px solid #670f0f;
+  height: 13px;
+  left: -70px;
+  top: 738px;
+  width: 515px;
+}
+
+/* ── Disk C ── */
+.diskC {
+  position: absolute;
+  left: 38px;
+  top: 665px;
+  width: 203px;
+  height: 86px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.diskCImg {
+  position: absolute;
+  inset: -1.87% -0.46% -1.63% -0.59%;
+}
+
+/* ── "Animation" title ── */
+.title {
+  position: absolute;
+  left: 193px;
+  top: 98px;
+  font-family: 'jsMath-cmti10:cmti10', serif;
+  font-style: italic;
+  font-size: 40px;
+  line-height: normal;
+  color: #fae6d5;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── Vector54 ── */
+.vector54 {
+  position: absolute;
+  height: 150.5px;
+  left: 3px;
+  top: 44px;
+  width: 28.055px;
+}
+.vector54Img {
+  position: absolute;
+  inset: 0 -3.34% -0.11% -2.36%;
+}
+
+/* ── Vector55 ── */
+.vector55Wrap {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 152.549px;
+  left: -18px;
+  top: 30px;
+  width: 42.937px;
+}
+.vector55Inner { transform: rotate(-5.73deg); }
+.vector55 { height: 150.5px; width: 28.055px; position: relative; }
+.vector55Img { position: absolute; inset: 0 -3.34% -0.11% -2.36%; }
+
+/* ── Package labels ── */
+.labelA,
+.labelB,
+.labelC {
+  position: absolute;
+  font-family: 'jsMath-cmti10:cmti10', serif;
+  font-style: italic;
+  font-size: 24px;
+  line-height: normal;
+  color: #fae6d5;
+  width: 189px;
+  pointer-events: none;
+  user-select: none;
+}
+.labelA { left: 52px; top: 519px; }
+.labelB { left: 198px; top: 608px; }
+.labelC { left: 46px; top: 649px; }
+
+/* ── Group58 ── */
+.group58 {
+  position: absolute;
+  height: 48.593px;
+  left: 4px;
+  top: 448px;
+  width: 355px;
+}
+.group58Img {
+  position: absolute;
+  inset: -2.53% 0 -2.13% 0;
+}

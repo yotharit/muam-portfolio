@@ -1,9 +1,7 @@
 import { CommissionType } from '@/types/commission';
-import { illustrationCommission } from './illustration';
 import { animationCommission } from './animation';
 
 export const allCommissions: CommissionType[] = [
-  illustrationCommission,
   animationCommission,
 ];
 

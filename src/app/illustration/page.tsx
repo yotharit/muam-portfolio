@@ -1,12 +1,11 @@
-import CommissionPageTemplate from '@/components/commission/CommissionPageTemplate';
-import { illustrationCommission } from '@/data/illustration';
-import { Metadata } from 'next';
+import IllustrationPage from '@/components/illustration/IllustrationPage';
+import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: illustrationCommission.seo?.title || illustrationCommission.name,
-  description: illustrationCommission.seo?.description || illustrationCommission.description,
+  title: 'Illustration — Portfolio',
+  description: 'Illustration styles and portfolio.',
 };
 
-export default function IllustrationPage() {
-  return <CommissionPageTemplate commission={illustrationCommission} />;
+export default function Page() {
+  return <IllustrationPage />;
 }

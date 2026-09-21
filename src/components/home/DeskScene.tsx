@@ -91,7 +91,7 @@ export default function DeskScene() {
           </div>
         </div>
         <Link href="/illustration" className={styles.illuText}>
-          Illustion
+          Illustration
         </Link>
       </div>
 

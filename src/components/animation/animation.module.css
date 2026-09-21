@@ -10,8 +10,8 @@
   position: absolute;
   width: 393px;
   height: 844px;
-  left: 50%;
-  top: 50%;
+  left: calc(50% + var(--safe-offset-x, 0px));
+  top: calc(50% + var(--safe-offset-y, 0px));
   transform-origin: center center;
   transform: translate(-50%, -50%) scale(var(--scale, 1));
 }
@@ -49,9 +49,9 @@
 .shelfBottom {
   position: absolute;
   background: #f8c3d0;
-  height: 133px;
+  height: 139px;
   left: -69px;
-  top: 751px;
+  top: 745px;
   width: 515px;
 }
 
@@ -160,100 +160,42 @@
   border-radius: 12px;
   top: 527px;
   width: 224px;
-  z-index: 10;
 }
 
-/* ── Disk layer (full-canvas wrapper) ── */
-.diskLayer {
+/* ── Package disks ──
+   Positioned at slot 1 and moved between slots with a transform, so the shuffle
+   stays on the compositor. Sizes/offsets come from PackageDisk's GEOMETRY. */
+.disk {
   position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-/* ── Disk A ── */
-.diskA {
-  position: absolute;
-  left: 43px;
-  top: 531px;
-  width: 203.001px;
-  height: 86px;
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
   cursor: pointer;
-  pointer-events: auto;
-}
-.diskAImg {
-  position: absolute;
-  inset: -11.64% -5.09% -13.72% -5.22%;
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* ── Disk B ── */
-.diskBMain {
-  position: absolute;
-  left: 180px;
-  top: 617px;
-  width: 203px;
-  height: 86px;
-  cursor: pointer;
-  pointer-events: auto;
-}
-.diskBMainImg {
-  position: absolute;
-  inset: -1.87% -0.46% -1.63% -0.59%;
-}
-
-.groove {
-  position: absolute;
-  width: 65.304px;
-  height: 116.618px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.diskImg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
   pointer-events: none;
 }
-.grooveInner {
-  transform: rotate(-26.7deg);
-}
-.grooveBar {
-  background: #fce8d7;
-  border: 1px solid #670f0f;
-  height: 125.518px;
-  width: 9.974px;
-  mask-image: url('/images/animation/rectangle110.svg');
-  mask-size: 205.137px 89.009px;
-  mask-repeat: no-repeat;
+
+/* Lift on hover/focus without touching the slot transform. */
+.disk:hover .diskImg,
+.disk:focus-visible .diskImg {
+  filter: drop-shadow(0 2px 5px rgba(103, 15, 15, 0.35));
 }
 
-.diskBSubtract1 {
-  position: absolute;
-  height: 29.232px;
-  left: 247px;
-  top: 645.38px;
-  width: 69px;
-  mask-image: url('/images/animation/rectangle110.svg');
-  mask-position: -68.195px -29.996px;
-  mask-size: 205.137px 89.009px;
-  mask-repeat: no-repeat;
-  pointer-events: none;
-}
-.diskBSubtract1Img {
-  position: absolute;
-  inset: -4.83% -2.31% -4.09% 0;
+.disk:focus-visible {
+  outline: none;
 }
 
-.diskBSubtract2 {
-  position: absolute;
-  height: 86px;
-  left: 180px;
-  top: 617px;
-  width: 203px;
-  mask-image: url('/images/animation/rectangle110.svg');
-  mask-position: -1.195px -1.612px;
-  mask-size: 205.137px 89.009px;
-  mask-repeat: no-repeat;
-  pointer-events: none;
-}
-.diskBSubtract2Img {
-  position: absolute;
-  inset: -1.87% -0.46% -1.63% -0.59%;
+.disk:focus-visible .diskImg {
+  filter: drop-shadow(0 1px 4.7px rgba(255, 0, 77, 0.98));
 }
 
 /* ── Laptop frame ── */
@@ -285,14 +227,25 @@
   width: 322px;
   overflow: hidden;
 }
-.screenImg {
+.screenMedia {
   position: absolute;
   inset: 0;
+  display: block;
   width: 100%;
   height: 100%;
   max-width: none;
   object-fit: cover;
+  background: #fce8d7;
   pointer-events: none;
+}
+
+@keyframes screenFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.screenMediaEnter {
+  animation: screenFadeIn 200ms ease;
 }
 
 /* ── Spools ── */
@@ -458,24 +411,10 @@
   width: 515px;
 }
 
-/* ── Disk C ── */
-.diskC {
-  position: absolute;
-  left: 38px;
-  top: 665px;
-  width: 203px;
-  height: 86px;
-  cursor: pointer;
-  pointer-events: auto;
-}
-.diskCImg {
-  position: absolute;
-  inset: -1.87% -0.46% -1.63% -0.59%;
-}
-
 /* ── "Animation" title ── */
 .title {
   position: absolute;
+  margin: 0;
   left: 193px;
   top: 98px;
   font-family: 'jsMath-cmti10:cmti10', serif;
@@ -483,6 +422,8 @@
   font-size: 40px;
   line-height: normal;
   color: #fae6d5;
+  -webkit-text-stroke: 1px #670f0f;
+  paint-order: stroke fill;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -515,24 +456,6 @@
 .vector55 { height: 150.5px; width: 28.055px; position: relative; }
 .vector55Img { position: absolute; inset: 0 -3.34% -0.11% -2.36%; }
 
-/* ── Package labels ── */
-.labelA,
-.labelB,
-.labelC {
-  position: absolute;
-  font-family: 'jsMath-cmti10:cmti10', serif;
-  font-style: italic;
-  font-size: 24px;
-  line-height: normal;
-  color: #fae6d5;
-  width: 189px;
-  pointer-events: none;
-  user-select: none;
-}
-.labelA { left: 52px; top: 519px; }
-.labelB { left: 198px; top: 608px; }
-.labelC { left: 46px; top: 649px; }
-
 /* ── Group58 ── */
 .group58 {
   position: absolute;
@@ -544,4 +467,24 @@
 .group58Img {
   position: absolute;
   inset: -2.53% 0 -2.13% 0;
+}
+
+/* ── Selected package blurb (Figma 2-897 / 2-899) ──
+   Figma sets 14px, but its Thai fallback is narrower than the browser's: the
+   same string needs 6 lines here instead of 4 and runs ~23px past the artboard.
+   12px is the largest size that still clears the bottom edge. */
+.description {
+  position: absolute;
+  margin: 0;
+  left: 14px;
+  top: 767px;
+  width: 364px;
+  font-family: 'Helvetica Neue', Helvetica, 'Noto Sans Thai', Arial, sans-serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: normal;
+  color: #670f0f;
+  overflow-wrap: break-word;
+  pointer-events: none;
 }

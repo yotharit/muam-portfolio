@@ -6,13 +6,13 @@
   background: linear-gradient(to bottom, #ffead9, #c7bdb4);
 }
 
-/* Inner canvas – the 393×844 artboard, centered & scaled */
+/* Inner canvas – the 393×844 artboard, centered & scaled within the safe area */
 .canvas {
   position: absolute;
   width: 393px;
   height: 844px;
-  left: 50%;
-  top: 50%;
+  left: calc(50% + var(--safe-offset-x, 0px));
+  top: calc(50% + var(--safe-offset-y, 0px));
   transform-origin: center center;
   transform: translate(-50%, -50%) scale(var(--scale, 1));
 }

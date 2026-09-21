@@ -1,7 +1,7 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
 import styles from './LandingCanvas.module.css';
+import { useArtboardScale } from '@/hooks/useArtboardScale';
 
 /** Artboard dimensions from Figma (mobile frame) */
 const ARTBOARD_W = 393;
@@ -16,20 +16,7 @@ interface LandingCanvasProps {
  * to fit the current window while preserving aspect ratio.
  */
 export default function LandingCanvas({ children }: LandingCanvasProps) {
-  const canvasRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function resize() {
-      if (!canvasRef.current) return;
-      const vw = window.innerWidth;
-      const vh = window.innerHeight;
-      const scale = Math.min(vw / ARTBOARD_W, vh / ARTBOARD_H);
-      canvasRef.current.style.setProperty('--scale', String(scale));
-    }
-    resize();
-    window.addEventListener('resize', resize);
-    return () => window.removeEventListener('resize', resize);
-  }, []);
+  const canvasRef = useArtboardScale(ARTBOARD_W, ARTBOARD_H);
 
   return (
     <div className={styles.landing}>

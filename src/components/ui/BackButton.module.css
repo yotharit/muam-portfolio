@@ -1,0 +1,35 @@
+.backButton {
+  position: fixed;
+  top: calc(var(--safe-top, 0px) + 12px);
+  left: calc(var(--safe-left, 0px) + 12px);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #ff87a5;
+  border: 1px solid #670f0f;
+  box-shadow: 0px 1px 4.7px rgba(255, 0, 77, 0.6);
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.backButton:hover {
+  transform: translateY(-1px) scale(1.05);
+  filter: brightness(1.05);
+}
+
+.backButton:focus-visible {
+  outline: none;
+  filter: drop-shadow(0px 1px 4.7px rgba(255, 0, 77, 0.98));
+}
+
+.arrow {
+  font-family: 'jsMath-cmti10:cmti10', serif;
+  font-style: italic;
+  font-size: 28px;
+  line-height: 1;
+  color: #fae6d5;
+  transform: translateY(-1px);
+}

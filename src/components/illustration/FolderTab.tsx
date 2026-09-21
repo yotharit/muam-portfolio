@@ -2,58 +2,52 @@ import styles from './illustration.module.css';
 
 const IMG = '/images/illustration';
 
+// Both PNGs are 3x exports, but they cover different areas:
+//
+//   unselected — canvas IS the Figma group box exactly: 343.5 x 109.279 (1031x328).
+//   selected   — canvas also covers the arrow indicator sticking out 12.167px to
+//                the left and the pink glow bleeding 6.167px on every side, and the
+//                folder itself is taller because it is open: 368 x 171.333 (1104x514).
+//
+// Both offsets pull the canvas back so the GROUP BOX lands on the coordinate the
+// caller passes, which is what the Figma frames measure — keeping the artwork
+// pixel-aligned with the design in either state.
+const GEOMETRY = {
+  selected: { offsetX: -18.333, offsetY: -6.167, width: 368, height: 171.333 },
+  unselected: { offsetX: 0, offsetY: 0, width: 343.5, height: 109.279 },
+} as const;
+
 interface FolderTabProps {
+  letter: string;
   isActive: boolean;
   left: number;
   top: number;
-  onMouseEnter: () => void;
+  zIndex: number;
+  onSelect: () => void;
 }
 
-export default function FolderTab({ isActive, left, top, onMouseEnter }: FolderTabProps) {
-  const cls = isActive ? styles.folderOpen : styles.folderClose;
-  const v = isActive
-    ? { e1: 'vector28', e2: 'vector33', e3: 'vector32', e4: 'vector29', e5: 'vector30', e6: 'vector31' }
-    : { e1: 'vector34', e2: 'vector35', e3: 'vector36', e4: 'vector37', e5: 'vector38', e6: 'vector39' };
+export default function FolderTab({ letter, isActive, left, top, zIndex, onSelect }: FolderTabProps) {
+  const state = isActive ? 'selected' : 'unselected';
+  const geometry = GEOMETRY[state];
 
   return (
-    <div
-      className={cls}
-      style={{ left, top }}
-      onMouseEnter={onMouseEnter}
-      onClick={onMouseEnter}
-      onFocus={onMouseEnter}
-      tabIndex={0}
+    <button
+      type="button"
+      className={styles.folderTab}
+      style={{
+        left: left + geometry.offsetX,
+        top: top + geometry.offsetY,
+        width: geometry.width,
+        height: geometry.height,
+        zIndex,
+      }}
+      onClick={onSelect}
     >
-      <div className={styles.elem1}>
-        <div className={styles.elem1Inner}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/${v.e1}.svg`} />
-        </div>
-      </div>
-      <div className={styles.elem2}>
-        <div className={styles.elem2Inner}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/${v.e2}.svg`} />
-        </div>
-      </div>
-      <div className={styles.elem3}>
-        <div className={styles.elem3Inner}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/${v.e3}.svg`} />
-        </div>
-      </div>
-      <div className={styles.elem4}>
-        <div className={styles.elem4Inner}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/${v.e4}.svg`} />
-        </div>
-      </div>
-      <div className={styles.elem5}>
-        <div className={styles.elem5Inner}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/${v.e5}.svg`} />
-        </div>
-      </div>
-      <div className={styles.elem6}>
-        <div className={styles.elem6Inner}>
-          <img alt="" className={styles.imgFill} src={`${IMG}/${v.e6}.svg`} />
-        </div>
-      </div>
-    </div>
+      <img
+        alt={`Style ${letter.toUpperCase()}`}
+        className={styles.folderImg}
+        src={`${IMG}/${letter}-${state}.png`}
+      />
+    </button>
   );
 }

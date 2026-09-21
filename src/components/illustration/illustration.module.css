@@ -10,8 +10,8 @@
   position: absolute;
   width: 393px;
   height: 844px;
-  left: 50%;
-  top: 50%;
+  left: calc(50% + var(--safe-offset-x, 0px));
+  top: calc(50% + var(--safe-offset-y, 0px));
   transform-origin: center center;
   transform: translate(-50%, -50%) scale(var(--scale, 1));
 }
@@ -24,168 +24,37 @@
   height: 100%;
 }
 
-/* ── Arrow indicator ── */
-.arrow {
+/* ── Folder tab (native <button>, UA styles reset) ──
+   Position and per-state size come from inline style (exact Figma group boxes);
+   z-index is fixed per tab (A lowest → E highest) and never changes with selection.
+   No transitions — selecting swaps the artwork instantly, with no motion. */
+.folderTab {
+  appearance: none;
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  text-align: left;
   position: absolute;
-  left: 3px;
-  width: 24px;
-  height: 24px;
-  transition: top 200ms ease;
-}
-
-.arrowInner {
-  position: absolute;
-  bottom: 25%;
-  left: 12.79%;
-  right: 12.79%;
-  top: 8.33%;
-}
-
-/* ── Folder tab container ── */
-.folderOpen {
-  position: absolute;
-  width: 343.5px;
-  height: 159px;
-  filter: drop-shadow(0px 1px 4.7px rgba(255, 0, 77, 0.98));
   cursor: pointer;
 }
 
-.folderClose {
-  position: absolute;
-  width: 343.5px;
-  height: 109.279px;
-  cursor: pointer;
+/* Hover affordance that does not move or resize anything */
+.folderTab:hover {
+  filter: brightness(1.04);
 }
 
-/* Open folder shape elements */
-.folderOpen .elem1 {
-  position: absolute;
-  inset: 14.47% 1.64% 11.01% 0.15%;
-  transform: scaleX(-1);
-}
-.folderOpen .elem1Inner {
-  position: absolute;
-  inset: -1.34% 0.64% -0.24% 1.05%;
+.folderTab:focus-visible {
+  outline: 2px solid #670f0f;
+  outline-offset: 2px;
 }
 
-.folderOpen .elem2 {
-  position: absolute;
-  inset: 0 13.43% 12.67% 11.64%;
-  transform: rotate(6.42deg);
-  transform-origin: center center;
-}
-.folderOpen .elem2Inner {
-  position: absolute;
-  inset: -0.82% -0.57% -1.14% -0.21%;
-}
-
-.folderOpen .elem3 {
-  position: absolute;
-  inset: 12.58% 17.5% 16.98% 10.77%;
-}
-.folderOpen .elem3Inner {
-  position: absolute;
-  inset: -0.86% -0.35% -0.99% -0.17%;
-}
-
-.folderOpen .elem4 {
-  position: absolute;
-  inset: 52.37% 0 0 0;
-  transform: scaleX(-1);
-}
-.folderOpen .elem4Inner {
-  position: absolute;
-  inset: -2.26% 1.38% -2.25% 1.47%;
-}
-
-.folderOpen .elem5 {
-  position: absolute;
-  inset: 94.34% 16.16% 5.66% 15.43%;
-}
-.folderOpen .elem5Inner {
-  position: absolute;
-  inset: -1.78px -0.21% -1.71px 0;
-}
-
-.folderOpen .elem6 {
-  position: absolute;
-  inset: 88.68% 13.68% 11.32% 13.25%;
-}
-.folderOpen .elem6Inner {
-  position: absolute;
-  inset: -1.67px -0.14% -1.7px 0;
-}
-
-/* Close folder shape elements */
-.folderClose .elem1 {
-  position: absolute;
-  inset: 4.87% 1.64% 8.65% 0.15%;
-  transform: scaleX(-1);
-}
-.folderClose .elem1Inner {
-  position: absolute;
-  inset: -1.78% 1.09% -1.37% 1.24%;
-}
-
-.folderClose .elem2 {
-  position: absolute;
-  inset: 0 13.88% 0 12.17%;
-  transform: rotate(6.42deg);
-  transform-origin: center center;
-}
-.folderClose .elem2Inner {
-  position: absolute;
-  inset: -1.54% 0 -1.11% -0.22%;
-}
-
-.folderClose .elem3 {
-  position: absolute;
-  inset: 14.94% 17.61% 10.94% 10.77%;
-}
-.folderClose .elem3Inner {
-  position: absolute;
-  inset: -1.25% 0 -1.62% -0.2%;
-}
-
-.folderClose .elem4 {
-  position: absolute;
-  inset: 24.09% 0 6.61% 0;
-  transform: scaleX(-1);
-}
-.folderClose .elem4Inner {
-  position: absolute;
-  inset: -2.21% 1.38% -2.25% 1.62%;
-}
-
-.folderClose .elem5 {
-  position: absolute;
-  inset: 89.06% 16.3% 10.94% 16.3%;
-}
-.folderClose .elem5Inner {
-  position: absolute;
-  inset: -1.74px -0.22% -1.71px 0;
-}
-
-.folderClose .elem6 {
-  position: absolute;
-  inset: 84.49% 14.99% 15.51% 14.56%;
-}
-.folderClose .elem6Inner {
-  position: absolute;
-  inset: -1.77px 0 -1.69px 0;
-}
-
-/* ── Folder labels (A–E) ── */
-.label {
-  position: absolute;
-  font-family: 'jsMath-cmti10:cmti10', serif;
-  font-style: italic;
-  font-size: 40px;
-  line-height: normal;
-  color: #fae6d5;
-  white-space: nowrap;
-  pointer-events: none;
-  user-select: none;
+/* Folder artwork — letter and (when selected) the arrow indicator are baked into
+   the PNG. The box above already matches each asset's aspect ratio exactly. */
+.folderImg {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 /* ── Bottom decorative / content area ── */
@@ -348,8 +217,22 @@
   pointer-events: none;
 }
 
-/* "Illustion" title */
-.illustionTitle {
+/* Cream fill with the same #670f0f outline every other element in this design is
+   drawn with. paint-order puts the stroke behind the fill so the letterforms keep
+   their full weight instead of being eaten into from both sides.
+   margin:0 matters — globals.css resets html/body but not <p>, so without it the
+   UA's default `margin: 1em 0` pushes each label down by a full font-size (40px
+   for the title, 24px for the style label) past its absolute `top`. */
+.illustrationTitle,
+.styleLabel {
+  margin: 0;
+  color: #fae6d5;
+  -webkit-text-stroke: 1px #670f0f;
+  paint-order: stroke fill;
+}
+
+/* "Illustration" title */
+.illustrationTitle {
   position: absolute;
   left: 35px;
   top: 376px;
@@ -357,7 +240,6 @@
   font-style: italic;
   font-size: 40px;
   line-height: normal;
-  color: #fae6d5;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -365,7 +247,7 @@
 /* Star decoration */
 .star {
   position: absolute;
-  left: 157.49px;
+  left: 168.18px; /* Figma node 1-198 */
   top: 368.49px;
   width: 44.012px;
   height: 44.012px;
@@ -568,7 +450,6 @@
   font-style: italic;
   font-size: 24px;
   line-height: normal;
-  color: #fae6d5;
   width: 189px;
   pointer-events: none;
 }

@@ -1,80 +1,69 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import FolderTab from './FolderTab';
 import styles from './illustration.module.css';
 import { illustrationStyles } from '@/data/illustration';
+import { useArtboardScale } from '@/hooks/useArtboardScale';
+import BackButton from '@/components/ui/BackButton';
 
 const IMG = '/images/illustration';
 
 const ARTBOARD_W = 393;
 const ARTBOARD_H = 844;
 
-const TABS = [
-  { left: 27, top: 46, labelLeft: 36, labelTop: 79, arrowTop: 98 },
-  { left: 23, top: 142, labelLeft: 36, labelTop: 146, arrowTop: 165 },
-  { left: 26, top: 179, labelLeft: 32, labelTop: 188, arrowTop: 207 },
-  { left: 26, top: 216, labelLeft: 33, labelTop: 225, arrowTop: 244 },
-  { left: 28, top: 256, labelLeft: 33, labelTop: 264, arrowTop: 283 },
+// Horizontal offsets are identical in every Figma frame.
+// The letter and, when selected, the arrow indicator are baked into the PNG
+// assets, so no separate label/arrow overlay is needed.
+const TAB_LEFTS = [27, 23, 26, 26, 28] as const;
+
+// The stack is a flow, not fixed slots, and it has to be: an open folder needs
+// ~107px of clear height before the next tab, but the stack only spans 319px
+// (y=46 down to 365, where E's closed body ends in both Figma frames). Five
+// folders at that pitch would need 537px, so the room has to come from somewhere.
+//
+// Each row keeps the stack pinned top and bottom: folders BELOW the open one hold
+// the normal 37px pitch, the open one claims its 107px, and whatever is left over
+// is split evenly between the folders ABOVE it. That leftover is what sets the
+// strip height — 26px in Figma's B-open frame because only one folder sits above,
+// widening to ~40px when E is open and four have to share the space.
+//
+// Rows A and B are the exact group tops from Figma nodes 1-197 and 1-252.
+// C/D/E have no Figma frame — they apply the same rule and are best-effort.
+const TAB_TOPS = [
+  [46, 142, 179, 216, 256], // A open — Figma 1-197, exact
+  [46,  72, 179, 216, 256], // B open — Figma 1-252, exact  (1 strip above @ 26px)
+  [46,  79, 112, 219, 256], // C open — derived             (2 strips above @ 33px)
+  [46,  80, 115, 149, 256], // D open — derived             (3 strips above @ 34px)
+  [46,  86, 126, 166, 206], // E open — derived             (4 strips above @ 40px)
 ] as const;
 
-const LINE_TOPS = [733, 746, 761, 775, 789];
+// Figma nodes 1-240..1-244 (Line 25-29); each line is also nudged 1px right of the last.
+const LINE_TOPS = [742, 755, 770, 784, 798];
 
 export default function IllustrationPage() {
-  const canvasRef = useRef<HTMLDivElement>(null);
+  const canvasRef = useArtboardScale(ARTBOARD_W, ARTBOARD_H);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    function resize() {
-      if (!canvasRef.current) return;
-      const scale = Math.min(window.innerWidth / ARTBOARD_W, window.innerHeight / ARTBOARD_H);
-      canvasRef.current.style.setProperty('--scale', String(scale));
-    }
-    resize();
-    window.addEventListener('resize', resize);
-    return () => window.removeEventListener('resize', resize);
-  }, []);
-
   const active = illustrationStyles[activeIndex];
-  const arrowTop = TABS[activeIndex].arrowTop;
 
   return (
     <div className={styles.page}>
+      <BackButton href="/" />
       <div className={styles.canvas} ref={canvasRef}>
 
-        {/* ── Folder tabs ── */}
-        {TABS.map((tab, i) => (
+        {/* ── Folder tabs (letter + selected-state arrow are baked into the PNG assets) ── */}
+        {TAB_LEFTS.map((left, i) => (
           <FolderTab
             key={i}
+            letter={illustrationStyles[i].letter.toLowerCase()}
             isActive={i === activeIndex}
-            left={tab.left}
-            top={tab.top}
-            onMouseEnter={() => setActiveIndex(i)}
+            left={left}
+            top={TAB_TOPS[activeIndex][i]}
+            zIndex={i + 1}
+            onSelect={() => setActiveIndex(i)}
           />
         ))}
-
-        {/* ── Tab labels (A–E) ── */}
-        {TABS.map((tab, i) => (
-          <p
-            key={`label-${i}`}
-            className={styles.label}
-            style={{ left: tab.labelLeft, top: tab.labelTop }}
-          >
-            {illustrationStyles[i].letter}
-          </p>
-        ))}
-
-        {/* ── Arrow indicator ── */}
-        <div className={styles.arrow} style={{ top: arrowTop }}>
-          <div className={styles.arrowInner}>
-            <img
-              alt=""
-              className={styles.imgFill}
-              src={`${IMG}/polygon1.svg`}
-              style={{ transform: 'rotate(90deg)' }}
-            />
-          </div>
-        </div>
 
         {/* ── Bottom: photo backgrounds ── */}
         <div className={styles.photoBgRed}>
@@ -119,8 +108,12 @@ export default function IllustrationPage() {
           </div>
         </div>
 
-        {/* ── "Illustion" title + star ── */}
-        <p className={styles.illustionTitle}>Illustion</p>
+        {/* ── Star (Figma node 1-198) ──
+            Must paint BEHIND the title — in Figma the word's letters are drawn
+            over it. Later siblings paint on top, so the star goes first.
+            Figma has it as the frame's very first child (under the polaroids too),
+            but our polaroids sit ~43px higher than Figma's, which would bury it
+            entirely; keeping it just above them preserves the intended look. */}
         <div className={styles.star}>
           <div className={styles.starInner}>
             <div className={styles.starImg}>
@@ -128,6 +121,9 @@ export default function IllustrationPage() {
             </div>
           </div>
         </div>
+
+        {/* ── "Illustration" title ── */}
+        <p className={styles.illustrationTitle}>Illustration</p>
 
         {/* ── Pencil (right side) ── */}
         <div className={styles.pencilHead}>

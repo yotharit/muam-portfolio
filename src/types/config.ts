@@ -51,11 +51,3 @@ export interface CommissionCardConfig {
   tagline: string;
   href: string;
 }
-
-export interface AssetsConfig {
-  hero: Record<string, string>;          // key → image path
-  portfolio: Record<string, string[]>;   // commissionSlug → image paths
-  packages: Record<string, string>;      // packageId → image path
-  og: Record<string, string>;            // page slug → OG image path
-  icons: Record<string, string>;         // icon name → path
-}

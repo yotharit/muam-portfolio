@@ -1,7 +1,7 @@
 import { SiteConfig } from '@/types/config';
 
 export const siteConfig: SiteConfig = {
-  name: 'Artist Name',
+  name: 'Mu·am',
   logo: '/images/icons/logo.svg',
   tagline: 'Digital Art & Animation',
   navigation: [

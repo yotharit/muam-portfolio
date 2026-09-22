@@ -16,6 +16,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.tagline,
+  appleWebApp: {
+    title: siteConfig.name,
+    statusBarStyle: "black-translucent",
+  },
 };
 
 export const viewport: Viewport = {

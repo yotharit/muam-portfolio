@@ -21,7 +21,14 @@ body {
   font-family: var(--font-body);
   background: linear-gradient(to bottom, var(--color-bg-start), var(--color-bg-end));
   color: var(--color-text-primary);
+  /* 100vh resolves to the *large* viewport, which in an in-app browser (LINE,
+     Facebook, Instagram) is taller than window.innerHeight — the value the
+     artboard is scaled against. The difference becomes a scrollable strip of
+     bare gradient below the fixed artboard, and it misfires the in-app
+     browser's pull-to-dismiss gesture. 100dvh tracks the real visible height;
+     100vh stays above it as the fallback for browsers without dvh. */
   min-height: 100vh;
+  min-height: 100dvh;
 }
 
 h1, h2, h3, h4, h5, h6 {

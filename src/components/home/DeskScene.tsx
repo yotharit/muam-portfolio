@@ -4,8 +4,8 @@ import styles from './DeskScene.module.css';
 const IMG = '/images/landing';
 
 /**
- * The desk scene containing: cup, books, carpet, illustration area,
- * striped lines, and floor mat.
+ * The desk scene containing: cup, stacked books, and the open book that
+ * fronts the Illustration link.
  */
 export default function DeskScene() {
   return (
@@ -61,15 +61,9 @@ export default function DeskScene() {
         </div>
       </div>
 
-      {/* ── Carpet / rug ── */}
-      <div className={styles.carpet}>
-        <div className={styles.carpetRotate}>
-          <div className={styles.carpetShape}>
-            <div className={styles.carpetInner}>
-              <img alt="" className={styles.imgFill} src={`${IMG}/vector18.svg`} />
-            </div>
-          </div>
-        </div>
+      {/* ── Open book ── */}
+      <div className={styles.illuBook}>
+        <img alt="" className={styles.imgFill} src={`${IMG}/illustration-book.svg`} />
       </div>
 
       {/* ── Illustration Section ── */}
@@ -83,74 +77,10 @@ export default function DeskScene() {
             </div>
           </div>
         </div>
-
-        {/* ── Illustration window & text ── */}
-        <div className={styles.illuWindow}>
-          <div className={styles.illuWindowInner}>
-            <img alt="" className={styles.imgFill} src={`${IMG}/vector56.svg`} />
-          </div>
-        </div>
         <Link href="/illustration" className={styles.illuText}>
           Illustration
         </Link>
       </div>
-
-      {/* ── Striped lines ── */}
-      <StripedLines />
-
-      {/* ── Floor mat ── */}
-      <div className={styles.floorMat}>
-        <div className={styles.floorMatRotate}>
-          <div className={styles.floorMatShape}>
-            <div className={styles.floorMatInner}>
-              <img alt="" className={styles.imgFill} src={`${IMG}/vector19.svg`} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-}
-
-/* ── Striped lines sub-component ── */
-
-interface LineData {
-  height: number;
-  left: number;
-  top: number;
-  width: number;
-  rotate: string;
-  lineWidth: number;
-  inset: string;
-  src: string;
-}
-
-const LINES: LineData[] = [
-  { height: 30, left: 137, top: 642, width: 87, rotate: 'rotate(-19.03deg)', lineWidth: 92.027, inset: '-2.18px -0.43% -1.23px -0.22%', src: `${IMG}/line30.svg` },
-  { height: 26, left: 145, top: 657, width: 69, rotate: 'rotate(-20.65deg)', lineWidth: 73.736, inset: '-2.11px -0.68% -1.12px 0', src: `${IMG}/line31.svg` },
-  { height: 23, left: 155, top: 670, width: 63, rotate: 'rotate(-20.06deg)', lineWidth: 67.067, inset: '-2.01px -0.5% -0.9px 0', src: `${IMG}/line32.svg` },
-  { height: 23, left: 165, top: 680, width: 63, rotate: 'rotate(-20.06deg)', lineWidth: 67.067, inset: '-2.01px -0.5% -0.9px 0', src: `${IMG}/line32.svg` },
-  { height: 23, left: 172, top: 691, width: 63, rotate: 'rotate(-20.06deg)', lineWidth: 67.067, inset: '-2.01px -0.5% -0.9px 0', src: `${IMG}/line32.svg` },
-];
-
-function StripedLines() {
-  return (
-    <>
-      {LINES.map((line, i) => (
-        <div
-          key={i}
-          className={styles.lineWrap}
-          style={{ height: line.height, left: line.left, top: line.top, width: line.width }}
-        >
-          <div className={styles.rotateInner} style={{ transform: line.rotate }}>
-            <div className={styles.lineShape} style={{ width: line.lineWidth }}>
-              <div style={{ position: 'absolute', inset: line.inset }}>
-                <img alt="" className={styles.imgFill} src={line.src} />
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
     </>
   );
 }

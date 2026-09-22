@@ -7,60 +7,6 @@
 }
 
 /* ── Snack ── */
-.snackBody {
-  position: absolute;
-  display: flex;
-  height: 77.733px;
-  align-items: center;
-  justify-content: center;
-  left: -16.02px;
-  top: 702.65px;
-  width: 66.906px;
-}
-
-.snackBodyRotate {
-  flex: none;
-  transform: rotate(4.66deg);
-}
-
-.snackBodyShape {
-  height: 73px;
-  position: relative;
-  width: 61.172px;
-}
-
-.snackBodyInner {
-  position: absolute;
-  inset: -0.63% -2.5% 0 -2.9%;
-}
-
-.snackPlate {
-  position: absolute;
-  display: flex;
-  height: 45.354px;
-  align-items: center;
-  justify-content: center;
-  left: 44.25px;
-  top: 722.32px;
-  width: 133.131px;
-}
-
-.snackPlateRotate {
-  flex: none;
-  transform: rotate(6.17deg);
-}
-
-.snackPlateShape {
-  height: 31.5px;
-  position: relative;
-  width: 130.5px;
-}
-
-.snackPlateInner {
-  position: absolute;
-  inset: -3.61% -0.44% -1.54% -0.17%;
-}
-
 /* ── Bread ── */
 .breadOuter {
   position: absolute;

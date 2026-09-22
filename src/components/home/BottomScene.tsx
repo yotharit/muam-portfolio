@@ -9,26 +9,6 @@ const IMG = '/images/landing';
 export default function BottomScene() {
   return (
     <>
-      {/* ── Snack / cake ── */}
-      <div className={styles.snackBody}>
-        <div className={styles.snackBodyRotate}>
-          <div className={styles.snackBodyShape}>
-            <div className={styles.snackBodyInner}>
-              <img alt="" className={styles.imgFill} src={`${IMG}/vector20.svg`} />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className={styles.snackPlate}>
-        <div className={styles.snackPlateRotate}>
-          <div className={styles.snackPlateShape}>
-            <div className={styles.snackPlateInner}>
-              <img alt="" className={styles.imgFill} src={`${IMG}/vector21.svg`} />
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* ── Bread / sandwich ── */}
       <div className={styles.breadBottom2}>
         <div className={styles.breadBottom2Inner}>

@@ -16,6 +16,30 @@
   width: 424px;
 }
 
+/*
+ * The artboard is fitted by height, so on any viewport shorter than 393:844 —
+ * every in-app browser, and every desktop window that isn't very tall — it
+ * renders narrower than the screen. This bar is a title band and has to reach
+ * both edges, but its fixed 424px only bleeds ~15px past the 393px artboard,
+ * so once scaled it stops short and leaves background showing at both ends.
+ *
+ * Re-derive the width from the real viewport instead: dividing by --scale
+ * converts screen pixels into artboard units, so the band spans the screen at
+ * any scale. max() keeps the Figma width when the artboard is already wide
+ * enough, and centring it on the artboard reproduces the design's symmetric
+ * -15px/-16px bleed at scale 1.
+ *
+ * The art is a hand-drawn SVG, so this stretches it horizontally: ~1.2x in an
+ * in-app browser, ~1.9x on a 1280px desktop, ~3.5x at 1920px, where the drawn
+ * edge does start to smear. Cut the bar into a 9-slice (fixed caps, tiling
+ * middle) if that ever matters more than spanning the width.
+ */
+.topBar {
+  --bar-width: max(424px, calc(100dvw / var(--scale, 1)));
+  left: calc((393px - var(--bar-width)) / 2);
+  width: var(--bar-width);
+}
+
 /* ── Logo text ── */
 .logoText {
   position: absolute;
